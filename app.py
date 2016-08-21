@@ -1,8 +1,11 @@
-from movie import Movie
 from user import User
+import json
 
 
-user = User.load_from_file('Andrew.txt')
 
-print(user.name)
-print(user.movies)
+
+
+with open('my_file.txt', 'r') as f:
+    json_data = json.load(f)
+    user = User.from_json(json_data)
+    print(user.json())
